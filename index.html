@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa — CAI La Libertad, Bogotá</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<h2>📍 CAI La Libertad — Bogotá, Colombia</h2>
+<p>Dirección: Calle 59c Sur #88c84, Bogotá, Colombia</p>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  // Coordenadas del CAI La Libertad en Bogotá
+  const lat = 4.6260456;
+  const lng = -74.1915519;
+
+  const map = L.map('map').setView([lat, lng], 16);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  L.marker([lat, lng])
+    .addTo(map)
+    .bindPopup('📍 CAI La Libertad, Bogotá')
+    .openPopup();
+</script>
+
+</body>
+</html>
